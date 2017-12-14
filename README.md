@@ -1,6 +1,12 @@
+<img src="http://tfig.unece.org/images/logos/unescap-logo.png" align="right" width="300px" />
+
 # SDG Data Hub
 
-Version: 1.0b
+Version: 1.0 beta
+
+# Author
+
+[David Johnson](http://djson.io), *Big Data Consultant*, for [UNESCAP](http://www.unescap.org).
 
 ## Overview
 
@@ -9,7 +15,3 @@ The SDG Data Hub is a platform to expand and scale up the use of innovative data
 The SDG Data Hub is built from a customized implementation of CKAN, the open source data platform in use by government and organizations around the world. 
 
 ![Concept](sdgdatahub_concept.png)
-
-# Author
-
-David Johnson, *Big Data Consultant*, for UNESCAP-SD.
