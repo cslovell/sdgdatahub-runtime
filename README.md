@@ -15,3 +15,26 @@ The SDG Data Hub is a platform to expand and scale up the use of innovative data
 ![Concept](sdgdatahub_concept.png)
 
 The SDG Data Hub is built from a customized implementation of CKAN, the open source data platform in use by government and organizations around the world. 
+
+## Installation on Amazon EC2
+
+Launch an Amazon EC2 instance using Amazon Linux AMI 2017.09.1 (HVM), SSD Volume Type (tested against `ami-1a962263`), `t2.medium` instance type, and use the following in the Instance Details Advanved Details "User data" section:
+
+    #!/bin/sh
+    export PATH=/usr/local/bin:$PATH;
+
+    yum update
+    yum install docker -y
+    service docker start
+    mv /root/.dockercfg /home/ec2-user/.dockercfg
+    chown ec2-user:ec2-user /home/ec2-user/.dockercfg
+    usermod -a -G docker ec2-user
+    curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    chown root:docker /usr/local/bin/docker-compose
+
+    yum install git -y
+    git clone https://github.com/djson8/sdgdatahub-runtime /home/ec2-user/sdgdatahub-runtime
+    /usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compose.yml up -d
+    
+100GiB of EBS is recommended and take care to ensure your Security Group has exposed ports 80 and 443 (HTTP/HTTPS).
