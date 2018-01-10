@@ -38,3 +38,14 @@ Launch an Amazon EC2 instance using Amazon Linux AMI 2017.09.1 (HVM), SSD Volume
     /usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compose.yml up -d
     
 100GiB of EBS is recommended and take care to ensure your Security Group has exposed ports 80 and 443 (HTTP/HTTPS).
+
+Once you've created your container, you will need to login and enter the container, and type the following command: 
+
+    docker ps
+    
+This will show a list of containers. Get the "container id" of the image "sdgdatahubruntime_ckan". (In this case, it was 05b63985539d.) Once you do, type the following command: 
+
+    docker exec -it 05b63985539d sh
+    . /usr/lib/ckan/default/bin/activate
+    
+
