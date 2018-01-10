@@ -34,7 +34,7 @@ Launch an Amazon EC2 instance using Amazon Linux AMI 2017.09.1 (HVM), SSD Volume
     chown root:docker /usr/local/bin/docker-compose
 
     yum install git -y
-    git clone https://github.com/djson8/sdgdatahub-runtime /home/ec2-user/sdgdatahub-runtime
+    git clone https://github.com/cslovell/sdgdatahub-runtime /home/ec2-user/sdgdatahub-runtime
     /usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compose.yml up -d
     
 100GiB of EBS is recommended and take care to ensure your Security Group has exposed ports 80 and 443 (HTTP/HTTPS).
