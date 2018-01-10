@@ -47,5 +47,5 @@ This will show a list of containers. Get the "container id" of the image "sdgdat
 
     docker exec -it 05b63985539d sh
     . /usr/lib/ckan/default/bin/activate
-    
+    paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini
 
