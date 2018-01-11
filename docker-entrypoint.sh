@@ -18,4 +18,4 @@ echo "starting server"
 
 exec paster serve /etc/ckan/default/default.ini
 
-exec paster sysadmin add sean email="lovells@un.org"
+exec paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini
