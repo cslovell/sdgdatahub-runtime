@@ -18,4 +18,4 @@ echo "starting server"
 
 exec paster serve /etc/ckan/default/default.ini
 
-exec paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini
+#exec echo "Abcd1234$" | paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini --stdin
