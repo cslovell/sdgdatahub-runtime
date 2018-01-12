@@ -7,10 +7,6 @@ LABEL software="CKAN"
 LABEL software.version="2.5.7-sdgdatahub"
 LABEL version="1.0"
 
-ENV AWS_DEFAULT_REGION='[your region]'
-ENV AWS_ACCESS_KEY_ID='[your access key id]'
-ENV AWS_SECRET_ACCESS_KEY='[your secret]'
-
 RUN apt-get -qq update && \
     apt-get install -qq -y --no-install-recommends \
     postgresql-client \
