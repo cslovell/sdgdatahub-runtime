@@ -12,7 +12,6 @@ services:
     environment:
        DATABASE_URL: "postgresql://ckan:ckan@postgres:5432/ckan"
        SOLR_URL: "http://solr:8983/solr/ckan"
-    env_file: .env
 #    gather-consumer:
 #      build: ./
 #      command:
