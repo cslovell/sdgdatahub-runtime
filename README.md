@@ -85,7 +85,7 @@ In the home directory [ec2-user], create two files, one "credentials" and anothe
 In the config file, put the following: 
 
     [default]
-    region=us-west-2
+    region=us-east-1
     output=json
 
 Create a file called "docker-stop.sh":
