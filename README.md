@@ -88,16 +88,18 @@ In the config file, put the following:
     region=us-west-2
     output=json
 
-Create a file 
+Create a file called "docker-stop.sh":
 
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-docker rmi $(docker images -q)
-sudo rm -R /home/ec2-user/sdgdatahub-runtime
-git clone https://github.com/cslovell/sdgdatahub-runtime.git
-/usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compo
-se.yml up -d
-docker cp /home/ec2-user/config ckan:/home/.aws/config
-docker cp /home/ec2-user/credentials ckan:/home/.aws/credentials
-docker exec ckan export AWS_SHARED_CREDENTIALS_FILE=/home/.aws/credentials
-docker exec ckan export AWS_CONFIG_FILE=/home/.aws/config
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
+    sudo rm -R /home/ec2-user/sdgdatahub-runtime
+    git clone https://github.com/cslovell/sdgdatahub-runtime.git
+    /usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compo
+    se.yml up -d
+    docker cp /home/ec2-user/config ckan:/home/.aws/config
+    docker cp /home/ec2-user/credentials ckan:/home/.aws/credentials
+    docker exec ckan export AWS_SHARED_CREDENTIALS_FILE=/home/.aws/credentials
+    docker exec ckan export AWS_CONFIG_FILE=/home/.aws/config
+
+This file will help restart the docker contanier directly from the github source. 
