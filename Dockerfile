@@ -30,8 +30,8 @@ RUN pip install -q -e 'git+https://github.com/ckan/ckanext-dcat.git#egg=ckanext-
 RUN pip install -q -r /src/ckanext-dcat/requirements.txt
 RUN pip install -q ckanext-geoview
 
-RUN pip install -q -e 'git+https://github.com/djson8/ckanext-sdgdata.git#egg=ckanext-sdgdata'
-RUN pip install -q -e 'git+https://github.com/djson8/ckanext-showcase.git#egg=ckanext-showcase'
+RUN pip install -q -e 'git+https://github.com/cslovell/ckanext-sdgdata.git#egg=ckanext-sdgdata'
+RUN pip install -q -e 'git+https://github.com/cslovell/ckanext-showcase.git#egg=ckanext-showcase'
 
 RUN mkdir -p /etc/ckan/default
 
