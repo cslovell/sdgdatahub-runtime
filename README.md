@@ -49,3 +49,20 @@ This will show a list of containers. Get the "container id" of the image "sdgdat
     . /usr/lib/ckan/default/bin/activate
     paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini
 
+## Restore latest database
+
+Download the last backup from s3: 
+
+    aws s3 cp s3://sdgdatahub-backups/ckan.dump ckan.dump
+
+Second, wipe the database:
+    
+    docker exec ckan paster --plugin=ckan db clean -c /etc/ckan/default/default.ini
+
+Third, navigate to the folder where the database copy was stored and copy the database into the docker container (assuming it is called "ckan.dump"): 
+
+    docker cp ckan.dump sdgdatahubruntime_postgres_1:/home/
+    
+Finally, restore the database: 
+
+    docker exec -u postgres sdgdatahubruntime_postgres_1 pg_restore -v --clean --if-exists -d ckan /home/ckan.dump
