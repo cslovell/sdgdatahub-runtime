@@ -74,4 +74,16 @@ To backup the database to aws, run the following:
     docker exec -u postgres sdgdatahubruntime_postgres_1 pg_dump --format=custom -d ckan > ckan.dump
     aws s3 cp ckan.dump s3://sdgdatahub-backups/ckan.dump
     
+## Restart and reload from github
 
+In the home directory [ec2-user], create two files, one "credentials" and another "config". In the credentials file, put the following (replacing with your own): 
+
+    [default]
+    aws_access_key_id=AKIAIOSFODNN7EXAMPLE
+    aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+In the config file, put the following: 
+
+    [default]
+    region=us-west-2
+    output=json
