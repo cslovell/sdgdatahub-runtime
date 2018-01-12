@@ -66,3 +66,12 @@ Third, navigate to the folder where the database copy was stored and copy the da
 Finally, restore the database: 
 
     docker exec -u postgres sdgdatahubruntime_postgres_1 pg_restore -v --clean --if-exists -d ckan /home/ckan.dump
+    
+## Backup the database
+
+To backup the database to aws, run the following: 
+
+    docker exec -u postgres sdgdatahubruntime_postgres_1 pg_dump --format=custom -d ckan > ckan.dump
+    aws s3 cp ckan.dump s3://sdgdatahub-backups/ckan.dump
+    
+
