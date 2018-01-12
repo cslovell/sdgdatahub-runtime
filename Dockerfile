@@ -32,6 +32,7 @@ RUN pip install -q ckanext-geoview
 
 RUN pip install -q -e 'git+https://github.com/cslovell/ckanext-sdgdata.git#egg=ckanext-sdgdata'
 RUN pip install -q -e 'git+https://github.com/cslovell/ckanext-showcase.git#egg=ckanext-showcase'
+RUN aws s3 cp s3://sdgdatahub-backups/ckan.dump /home/ec2-user/ckan.dump
 
 RUN mkdir -p /etc/ckan/default
 
