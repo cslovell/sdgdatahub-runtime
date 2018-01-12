@@ -97,6 +97,7 @@ Create a file called "docker-stop.sh":
     git clone https://github.com/cslovell/sdgdatahub-runtime.git
     /usr/local/bin/docker-compose -f /home/ec2-user/sdgdatahub-runtime/docker-compo
     se.yml up -d
+    sleep 20
     docker cp /home/ec2-user/config ckan:/home/.aws/config
     docker cp /home/ec2-user/credentials ckan:/home/.aws/credentials
     docker exec ckan export AWS_SHARED_CREDENTIALS_FILE=/home/.aws/credentials
