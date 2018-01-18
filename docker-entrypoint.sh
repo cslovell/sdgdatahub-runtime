@@ -12,9 +12,6 @@ while [ $? -gt 0 ]; do
 	checkDB
 done
 
-exec apt-get -y install apache2 libapache2-mod-wsgi libapache2-mod-rpaf
-exec apt-get -y install nginx
-
 cd /src/ckan && paster db init -c /etc/ckan/default/default.ini
 paster --plugin=ckanext-harvest harvester initdb --config=/etc/ckan/default/default.ini
 
