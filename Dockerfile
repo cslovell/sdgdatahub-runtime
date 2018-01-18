@@ -13,7 +13,7 @@ RUN apt-get -qq update && \
     libpq-dev \
     git-core \
     build-essential \
-    apache2 
+    apache2 \
     libapache2-mod-wsgi \
     libapache2-mod-rpaf \
     nginx
