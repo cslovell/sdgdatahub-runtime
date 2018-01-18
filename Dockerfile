@@ -12,7 +12,11 @@ RUN apt-get -qq update && \
     postgresql-client \
     libpq-dev \
     git-core \
-    build-essential
+    build-essential \
+    apache2 
+    libapache2-mod-wsgi \
+    libapache2-mod-rpaf \
+    nginx
 
 RUN pip install -q virtualenv virtualenvwrapper requests awscli
 
