@@ -43,5 +43,6 @@ COPY apache.wsgi /etc/ckan/default/apache.wsgi
 COPY ckan_default.conf /etc/apache2/sites-available/ckan_default.conf
 COPY ports.conf /etc/apache2/ports.conf
 COPY config/default.ini /etc/ckan/default/default.ini
+COPY ckan /etc/nginx/sites-available/ckan
 RUN ln -s /src/ckan/who.ini /etc/ckan/default/who.ini
 COPY ./docker-entrypoint.sh /
