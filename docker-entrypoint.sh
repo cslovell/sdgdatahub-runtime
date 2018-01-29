@@ -18,6 +18,12 @@ paster --plugin=ckanext-harvest harvester initdb --config=/etc/ckan/default/defa
 mkdir /home/.aws
 echo "starting server"
 
-exec paster serve --reload /etc/ckan/default/default.ini
+#exec paster serve --reload /etc/ckan/default/default.ini
+exec a2ensite ckan_default
+exec a2dissite 000-default
+exec rm -vi /etc/nginx/sites-enabled/default
+exec ln -s /etc/nginx/sites-available/ckan /etc/nginx/sites-enabled/ckan_default
+exec service apache2 reload
+exec service nginx reload
 
 #exec echo "Abcd1234$" | paster --plugin=ckan sysadmin add sa --config=/etc/ckan/default/default.ini --stdin
